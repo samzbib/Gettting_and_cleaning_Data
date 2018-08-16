@@ -18,6 +18,8 @@ strsplit2 <- function  (x)
 } 
 
 
+## ---------------
+## step 1 ... Read fetaure names, indentify needed cols (those contain mean or std 
 
 setwd ("C:\\Users\\sazbib\\OneDrive - Capgemini\\Desktop\\Training\\R Training\\Coursera-GettingAndCleaningData\\Project")
 
@@ -29,36 +31,43 @@ needed_cols <- unlist (which  (grepl("mean\\(|std\\(",feat_DF$fname)))
 ## feat_DF1 <- data.frame (unlist( lapply (feat_DF$fname, strsplit2)) )
 ## names (feat_DF1) <- "fname"
 
-
-
-
-
-
 # augment the act_sub_DF with activity name 
  actName_DF <- data.frame ( "actCode" = c(1:6), "actName" =  c("WALKING","WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS","SITTING", "STADING","LAYING"))
 
-# populate all locations into a DF for simple access 
+## ---------------
+## Step 2 ... Construct an operationss Data frame which contains the path names for all files needed)
 
+if(.Platform$OS.type == "unix") { path_sep <- "/"
+} else {
+  path_sep <- "\\"
+
+}
+
+
+## setup a lookup dataframe to lookup the path names for various files needed for either test or train, on either platform Unix or Windows
+
+## overwrite path names for Unix
 ops_df = data.frame ("source" = c ("test","train"), 
-                     "subject_loc" = c ("test\\subject_test.txt", "train\\subject_train.txt"), 
-                     "act_loc" = c ("test\\y_test.txt", "train\\y_train.txt"),
-                     "data_loc" = c ("test\\X_test.txt", "train\\X_train.txt"),stringsAsFactors = FALSE)
+                     "subject_loc" = c (paste ("test", "subject_test.txt",sep=path_sep), paste ("train","subject_train.txt", sep= path_sep)), 
+                     "act_loc" =     c (paste ("test", "y_test.txt", sep= path_sep),           paste("train","y_train.txt", sep= path_sep)),
+                     "data_loc" =    c (paste ("test", "X_test.txt",sep= path_sep),           paste("train","X_train.txt" , sep= path_sep)),stringsAsFactors = FALSE)
+
+row.names (ops_df) <- ops_df$source
+## ---------------
 
 
 
-
-
-##--------------------- Test Data aggregation
+## Step 3 --------------------- Test Data aggregation
 
 ## Construct a DF containing the test data sets 
-sub_DF <- read.csv (ops_df [1,2],header = FALSE)
-act_DF <- read.csv (ops_df [1,3],header = FALSE)
+sub_DF <- read.csv (ops_df ["test","subject_loc"],header = FALSE)
+act_DF <- read.csv (ops_df ["test","act_loc"],header = FALSE)
 act_sub_DF  <- cbind (sub_DF, act_DF)
 names (act_sub_DF) <- c ("subId","actCode")
 actNSub_DF <- merge (act_sub_DF,actName_DF, all.x = TRUE)
 
 # get the test data in a DF and add the Feature names to the Data frame
- testdata_DF <- read.table (ops_df [1,4],header = FALSE, stringsAsFactors = FALSE)
+ testdata_DF <- read.table (ops_df ["test","data_loc"],header = FALSE, stringsAsFactors = FALSE)
  names (testdata_DF) <- unlist(feat_DF$fname)
 
  mean_std_test_DF <-  select (testdata_DF, needed_cols)  
@@ -66,17 +75,17 @@ actNSub_DF <- merge (act_sub_DF,actName_DF, all.x = TRUE)
 complete_test_data_DF <- cbind (mean_std_test_DF [,],select (actNSub_DF,2-3))
 
 
-##-------------------------------Redo all for train Data 
+## Step 4-------------------------------Repeat for train Data 
 
 ## Construct a DF containing the test data sets 
-sub_DF <- read.csv (ops_df [2,2],header = FALSE)
-act_DF <- read.csv (ops_df [2,3],header = FALSE)
+sub_DF <- read.csv (ops_df ["train","subject_loc"],header = FALSE)
+act_DF <- read.csv (ops_df ["train","act_loc"],header = FALSE)
 act_sub_DF  <- cbind (sub_DF, act_DF)
 names (act_sub_DF) <- c ("subId","actCode")
 actNSub_DF <- merge (act_sub_DF,actName_DF, all.x = TRUE)
 
 # get the test data in a DF and add the Feature names to the Data frame
- traindata_DF <- read.table (ops_df [2,4],header = FALSE, stringsAsFactors = FALSE)
+ traindata_DF <- read.table (ops_df ["train","data_loc"],header = FALSE, stringsAsFactors = FALSE)
  names (traindata_DF) <- unlist(feat_DF$fname) 
 
  mean_std_train_DF <-  select (traindata_DF, needed_cols)  
@@ -85,13 +94,13 @@ complete_train_data_DF <- cbind (mean_std_train_DF [,],select (actNSub_DF,2-3))
 
 
 
-##Step 4------------------------------- Combine train Data with test data into one dataframe
+##Step 6------------------------------- Combine train Data with test data into one dataframe
 
 alldata_DF <- rbind ( complete_train_data_DF,  complete_test_data_DF)
 write.csv (alldata_DF, "output_data.csv") 
 
 
-##Step 5 ------------------------------- generate grouped summaries 
+##Step 7 ------------------------------- generate grouped summaries 
 
 temres <- alldata_DF  %>% group_by (actName, subId) %>% summarise_all(funs(mean))
 write.csv (temres, "summary_data.csv") 
