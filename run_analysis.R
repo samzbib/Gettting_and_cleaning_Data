@@ -103,8 +103,8 @@ write.csv (alldata_DF, "output_data.csv")
 ##Step 7 ------------------------------- generate grouped summaries 
 
 temres <- alldata_DF  %>% group_by (actName, subId) %>% summarise_all(funs(mean))
-write.csv (temres, "summary_data.csv") 
-
+## write.csv (temres, "summary_data.csv") 
+write.table (temres, file = "summary_data.csv", row.name = FALSE) 
 
 
 
