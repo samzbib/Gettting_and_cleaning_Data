@@ -1,0 +1,69 @@
+﻿original Index,Col Index,Variable Name,Description
+N/A,1,actName, Activity Name
+N/A,2,subId, Subject ID
+1,3,tBodyAcc-mean()-X,"mean of Time Based  Body Acceleration in X, Y or Z direction"
+2,4,tBodyAcc-mean()-Y,"mean of Time Based  Body Acceleration in X, Y or Z direction"
+3,5,tBodyAcc-mean()-Z,"mean of Time Based  Body Acceleration in X, Y or Z direction"
+4,6,tBodyAcc-std()-X,"Standard deviation of Time Based  Body Acceleration in X, Y or Z direction"
+5,7,tBodyAcc-std()-Y,"Standard deviation of Time Based  Body Acceleration in X, Y or Z direction"
+6,8,tBodyAcc-std()-Z,"Standard deviation of Time Based  Body Acceleration in X, Y or Z direction"
+41,9,tGravityAcc-mean()-X,mean Gravity Acceleration (X-Y Z) 
+42,10,tGravityAcc-mean()-Y,mean Gravity Acceleration (X-Y Z) 
+43,11,tGravityAcc-mean()-Z,mean Gravity Acceleration (X-Y Z) 
+44,12,tGravityAcc-std()-X,Standard deviation of Time Based  Gravity Acceleration
+45,13,tGravityAcc-std()-Y,Standard deviation of Time Based  Gravity Acceleration
+46,14,tGravityAcc-std()-Z,Standard deviation of Time Based  Gravity Acceleration
+81,15,tBodyAccJerk-mean()-X,Mean Body Acceleration Jerk Movement - XYZ
+82,16,tBodyAccJerk-mean()-Y,Mean Body Acceleration Jerk Movement - XYZ
+83,17,tBodyAccJerk-mean()-Z,Mean Body Acceleration Jerk Movement - XYZ
+84,18,tBodyAccJerk-std()-X,Standard Deviation Body Acceleration Jerk Movement - XYZ
+85,19,tBodyAccJerk-std()-Y,Standard Deviation Body Acceleration Jerk Movement - XYZ
+86,20,tBodyAccJerk-std()-Z,Standard Deviation Body Acceleration Jerk Movement - XYZ
+121,21,tBodyGyro-mean()-X,mean of Time Based  Body Gyro (XYZ)
+122,22,tBodyGyro-mean()-Y,mean of Time Based  Body Gyro (XYZ)
+123,23,tBodyGyro-mean()-Z,mean of Time Based  Body Gyro (XYZ)
+124,24,tBodyGyro-std()-X,Standard Deviation Body Gyro (XYZ)
+125,25,tBodyGyro-std()-Y,Standard Deviation Body Gyro (XYZ)
+126,26,tBodyGyro-std()-Z,Standard Deviation Body Gyro (XYZ)
+161,27,tBodyGyroJerk-mean()-X,mean  Body Gyro Jerk Movement
+162,28,tBodyGyroJerk-mean()-Y,mean  Body Gyro Jerk Movement
+163,29,tBodyGyroJerk-mean()-Z,mean  Body Gyro Jerk Movement
+164,30,tBodyGyroJerk-std()-X,Standard Deviation Body Gyro Jerk Movement
+165,31,tBodyGyroJerk-std()-Y,Standard Deviation Body Gyro Jerk Movement
+166,32,tBodyGyroJerk-std()-Z,Standard Deviation Body Gyro Jerk Movement
+201,33,tBodyAccMag-mean(),mean of Time Based  Body Acceleration Magnitude
+202,34,tBodyAccMag-std(),Standard Deviation Body Acceleration Magnitude
+214,35,tGravityAccMag-mean(),Mean Magnitude Gravity Acceleration
+215,36,tGravityAccMag-std(),Magnitude Standard Deviation Gravity Acceleration
+227,37,tBodyAccJerkMag-mean(),mean Body Acceleration Jerk Movement - XYZ
+228,38,tBodyAccJerkMag-std(),Standard Deviation Body Acceleration Jerk Movement - Magnitude
+240,39,tBodyGyroMag-mean(),Mean of Time Based  Body Gyroio Magnitude
+241,2,tBodyGyroMag-std(),Standard Deviation Body Gyroio Magnitude
+253,3,tBodyGyroJerkMag-mean(),mean Body Gyro Jerk Movement
+254,4,tBodyGyroJerkMag-std(),Standard Deviation Body Gyro Jerk Movement
+266,5,fBodyAcc-mean()-X,mean of  FFT Body Accelerationb (XYZ) 
+267,6,fBodyAcc-mean()-Y,mean of  FFT Body Accelerationb (XYZ) 
+268,7,fBodyAcc-mean()-Z,mean of  FFT Body Accelerationb (XYZ) 
+269,8,fBodyAcc-std()-X,Standard Deviation FFT Body Acceleration (XYZ) 
+270,9,fBodyAcc-std()-Y,Standard Deviation FFT Body Acceleration (XYZ) 
+271,10,fBodyAcc-std()-Z,Standard Deviation FFT Body Acceleration (XYZ) 
+345,11,fBodyAccJerk-mean()-X,mean FFT Body Acceleration Jerk Movement - XYZ
+346,12,fBodyAccJerk-mean()-Y,mean FFT Body Acceleration Jerk Movement - XYZ
+347,13,fBodyAccJerk-mean()-Z,mean FFT Body Acceleration Jerk Movement - XYZ
+348,14,fBodyAccJerk-std()-X,Standard Deviation FFT Body Acceleration Jerk Movement - XYZ
+349,15,fBodyAccJerk-std()-Y,Standard Deviation FFT Body Acceleration Jerk Movement - XYZ
+350,16,fBodyAccJerk-std()-Z,Standard Deviation FFT Body Acceleration Jerk Movement - XYZ
+424,17,fBodyGyro-mean()-X,Mean of  FFT Body Gyro Movement (XYZ) 
+425,18,fBodyGyro-mean()-Y,Mean of  FFT Body Gyro Movement (XYZ) 
+426,19,fBodyGyro-mean()-Z,Mean of  FFT Body Gyro Movement (XYZ) 
+427,20,fBodyGyro-std()-X,Standartd Deviation FFT Body Gyro Movement (XYZ) 
+428,21,fBodyGyro-std()-Y,Standartd Deviation FFT Body Gyro Movement (XYZ) 
+429,22,fBodyGyro-std()-Z,Standartd Deviation FFT Body Gyro Movement (XYZ) 
+503,23,fBodyAccMag-mean(),mean FFT Body Acceleration Magnitude
+504,24,fBodyAccMag-std(),Standard Deviation FFT Body Acceleration Magnitude
+516,25,fBodyBodyAccJerkMag-mean(),mean FFT Body Acceleration Jerk Movement - XYZ
+517,26,fBodyBodyAccJerkMag-std(),Standard Deviation FFT Body Acceleration Jerk Movement - XYZ
+529,27,fBodyBodyGyroMag-mean(),mean FFT Body Gyro Magnitude
+530,28,fBodyBodyGyroMag-std(), FFT Body Gyro Magnitude
+542,29,fBodyBodyGyroJerkMag-mean(),Standard Deviation FFT Body Gyro Jerk Movement
+543,30,fBodyBodyGyroJerkMag-std(),Standard Deviation FFT Body Gyro Jerk Movement
